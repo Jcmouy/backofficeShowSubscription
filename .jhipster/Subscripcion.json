@@ -1,0 +1,51 @@
+{
+  "name": "Subscripcion",
+  "fields": [
+    {
+      "fieldName": "fecha",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "metodoPago",
+      "fieldType": "MetodoPago",
+      "fieldValues": "GOOGLEPAY,APPLEPAY,TICKETERA"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "pago",
+      "otherEntityRelationshipName": "subscripcion",
+      "relationshipName": "pago",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "funcion",
+      "otherEntityRelationshipName": "subscripciones",
+      "relationshipValidateRules": "required",
+      "relationshipName": "funcion",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "persona",
+      "otherEntityRelationshipName": "subscripciones",
+      "relationshipValidateRules": "required",
+      "relationshipName": "persona",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20201029143909",
+  "entityTableName": "subscripcion",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

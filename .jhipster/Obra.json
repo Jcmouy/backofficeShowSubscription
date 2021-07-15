@@ -1,0 +1,96 @@
+{
+  "name": "Obra",
+  "fields": [
+    {
+      "fieldName": "nombre",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "descripcion",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "imagen",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "any",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "icono",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "any",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "protagonistas",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "direccion",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "autores",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "fecha",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "duracion",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "funcion",
+      "otherEntityRelationshipName": "obra",
+      "relationshipName": "funciones"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "contenido",
+      "otherEntityRelationshipName": "obra",
+      "relationshipName": "contenidos"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "etiqueta",
+      "otherEntityRelationshipName": "obras",
+      "relationshipName": "etiquetas",
+      "otherEntityField": "nombre",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "tipoDeObra",
+      "otherEntityRelationshipName": "obras",
+      "relationshipValidateRules": "required",
+      "relationshipName": "tipo",
+      "otherEntityField": "tipo"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "cuenta",
+      "otherEntityRelationshipName": "obras",
+      "relationshipValidateRules": "required",
+      "relationshipName": "cuenta",
+      "otherEntityField": "nombre"
+    }
+  ],
+  "changelogDate": "20201029142809",
+  "entityTableName": "obra",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

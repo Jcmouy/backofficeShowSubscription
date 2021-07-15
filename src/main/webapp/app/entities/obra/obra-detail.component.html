@@ -1,0 +1,86 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="obra">
+            <h2><span jhiTranslate="plataformaBackofficeApp.obra.detail.title">Obra</span> {{ obra.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="plataformaBackofficeApp.obra.nombre">Nombre</span></dt>
+                <dd>
+                    <span>{{ obra.nombre }}</span>
+                </dd>
+                <dt><span jhiTranslate="plataformaBackofficeApp.obra.descripcion">Descripcion</span></dt>
+                <dd>
+                    <span>{{ obra.descripcion }}</span>
+                </dd>
+                <dt><span jhiTranslate="plataformaBackofficeApp.obra.imagen">Imagen</span></dt>
+                <dd>
+                    <div *ngIf="obra.imagen">
+                        <a (click)="openFile(obra.imagenContentType, obra.imagen)" jhiTranslate="entity.action.open">open</a>
+                        {{ obra.imagenContentType }}, {{ byteSize(obra.imagen) }}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="plataformaBackofficeApp.obra.icono">Icono</span></dt>
+                <dd>
+                    <div *ngIf="obra.icono">
+                        <a (click)="openFile(obra.iconoContentType, obra.icono)" jhiTranslate="entity.action.open">open</a>
+                        {{ obra.iconoContentType }}, {{ byteSize(obra.icono) }}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="plataformaBackofficeApp.obra.protagonistas">Protagonistas</span></dt>
+                <dd>
+                    <span>{{ obra.protagonistas }}</span>
+                </dd>
+                <dt><span jhiTranslate="plataformaBackofficeApp.obra.direccion">Direccion</span></dt>
+                <dd>
+                    <span>{{ obra.direccion }}</span>
+                </dd>
+                <dt><span jhiTranslate="plataformaBackofficeApp.obra.autores">Autores</span></dt>
+                <dd>
+                    <span>{{ obra.autores }}</span>
+                </dd>
+                <dt><span jhiTranslate="plataformaBackofficeApp.obra.fecha">Fecha</span></dt>
+                <dd>
+                    <span>{{ obra.fecha }}</span>
+                </dd>
+                <dt><span jhiTranslate="plataformaBackofficeApp.obra.duracion">Duracion</span></dt>
+                <dd>
+                    <span>{{ obra.duracion }}</span>
+                </dd>
+                <dt><span jhiTranslate="plataformaBackofficeApp.obra.etiquetas">Etiquetas</span></dt>
+                <dd>
+                    <span *ngFor="let etiquetas of obra.etiquetas; let last = last">
+                        <a [routerLink]="['/etiqueta', etiquetas?.id, 'view']">{{ etiquetas.nombre }}</a>{{ last ? '' : ', ' }}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="plataformaBackofficeApp.obra.tipo">Tipo</span></dt>
+                <dd>
+                    <div *ngIf="obra.tipoId">
+                        <a [routerLink]="['/tipo-de-obra', obra.tipoId, 'view']">{{ obra.tipoTipo }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="plataformaBackofficeApp.obra.cuenta">Cuenta</span></dt>
+                <dd>
+                    <div *ngIf="obra.cuentaId">
+                        <a [routerLink]="['/cuenta', obra.cuentaId, 'view']">{{ obra.cuentaNombre }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/obra', obra.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

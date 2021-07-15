@@ -1,0 +1,88 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-contenido-heading" jhiTranslate="plataformaBackofficeApp.contenido.home.createOrEditLabel">Create or edit a Contenido</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="plataformaBackofficeApp.contenido.indice" for="field_indice">Indice</label>
+                    <input type="text" class="form-control" name="indice" id="field_indice"
+                           formControlName="indice"/>
+                    <div *ngIf="editForm.get('indice')!.invalid && (editForm.get('indice')!.dirty || editForm.get('indice')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('indice')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="plataformaBackofficeApp.contenido.subindice" for="field_subindice">Subindice</label>
+                    <input type="text" class="form-control" name="subindice" id="field_subindice"
+                           formControlName="subindice"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="plataformaBackofficeApp.contenido.tipoContenido" for="field_tipoContenido">Tipo Contenido</label>
+                    <input type="text" class="form-control" name="tipoContenido" id="field_tipoContenido"
+                           formControlName="tipoContenido"/>
+                    <div *ngIf="editForm.get('tipoContenido')!.invalid && (editForm.get('tipoContenido')!.dirty || editForm.get('tipoContenido')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('tipoContenido')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="plataformaBackofficeApp.contenido.valor" for="field_valor">Valor</label>
+                    <input type="text" class="form-control" name="valor" id="field_valor"
+                           formControlName="valor"/>
+                    <div *ngIf="editForm.get('valor')!.invalid && (editForm.get('valor')!.dirty || editForm.get('valor')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('valor')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="plataformaBackofficeApp.contenido.resumen" for="field_resumen">Resumen</label>
+                    <input type="text" class="form-control" name="resumen" id="field_resumen"
+                           formControlName="resumen"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="plataformaBackofficeApp.contenido.obra" for="field_obra">Obra</label>
+                    <select class="form-control" id="field_obra" name="obra" formControlName="obraId">
+                        <option *ngIf="!editForm.get('obraId')!.value" [ngValue]="null" selected></option>
+                        <option [ngValue]="obraOption.id" *ngFor="let obraOption of obras; trackBy: trackById">{{ obraOption.nombre }}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('obraId')!.invalid && (editForm.get('obraId')!.dirty || editForm.get('obraId')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('obraId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

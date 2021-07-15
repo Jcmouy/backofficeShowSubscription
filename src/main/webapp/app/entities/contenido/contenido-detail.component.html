@@ -1,0 +1,52 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="contenido">
+            <h2><span jhiTranslate="plataformaBackofficeApp.contenido.detail.title">Contenido</span> {{ contenido.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="plataformaBackofficeApp.contenido.indice">Indice</span></dt>
+                <dd>
+                    <span>{{ contenido.indice }}</span>
+                </dd>
+                <dt><span jhiTranslate="plataformaBackofficeApp.contenido.subindice">Subindice</span></dt>
+                <dd>
+                    <span>{{ contenido.subindice }}</span>
+                </dd>
+                <dt><span jhiTranslate="plataformaBackofficeApp.contenido.tipoContenido">Tipo Contenido</span></dt>
+                <dd>
+                    <span>{{ contenido.tipoContenido }}</span>
+                </dd>
+                <dt><span jhiTranslate="plataformaBackofficeApp.contenido.valor">Valor</span></dt>
+                <dd>
+                    <span>{{ contenido.valor }}</span>
+                </dd>
+                <dt><span jhiTranslate="plataformaBackofficeApp.contenido.resumen">Resumen</span></dt>
+                <dd>
+                    <span>{{ contenido.resumen }}</span>
+                </dd>
+                <dt><span jhiTranslate="plataformaBackofficeApp.contenido.obra">Obra</span></dt>
+                <dd>
+                    <div *ngIf="contenido.obraId">
+                        <a [routerLink]="['/obra', contenido.obraId, 'view']">{{ contenido.obraNombre }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/contenido', contenido.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

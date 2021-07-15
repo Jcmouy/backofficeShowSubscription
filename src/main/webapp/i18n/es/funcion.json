@@ -1,0 +1,27 @@
+{
+  "plataformaBackofficeApp": {
+    "funcion": {
+      "home": {
+        "title": "Funciones",
+        "createLabel": "Crear nueva Funcion",
+        "createOrEditLabel": "Crear o editar Funcion",
+        "notFound": "Ningúna Funcion encontrada"
+      },
+      "created": "Una nueva Funcion ha sido creada con el identificador {{ param }}",
+      "updated": "Una Funcion ha sido actualizada con el identificador {{ param }}",
+      "deleted": "Una Funcion ha sido eliminada con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar la Funcion {{ id }}?"
+      },
+      "detail": {
+        "title": "Funcion"
+      },
+      "fecha": "Fecha",
+      "precio": "Precio",
+      "subscripciones": "Subscripciones",
+      "obra": "Obra",
+      "pais": "Pais",
+      "moneda": "Moneda"
+    }
+  }
+}

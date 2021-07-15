@@ -1,0 +1,58 @@
+{
+  "name": "Funcion",
+  "fields": [
+    {
+      "fieldName": "fecha",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "precio",
+      "fieldType": "BigDecimal",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "subscripcion",
+      "otherEntityRelationshipName": "funcion",
+      "relationshipName": "subscripciones"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "obra",
+      "otherEntityRelationshipName": "funciones",
+      "relationshipValidateRules": "required",
+      "relationshipName": "obra",
+      "otherEntityField": "nombre"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "pais",
+      "otherEntityRelationshipName": "funciones",
+      "relationshipValidateRules": "required",
+      "relationshipName": "pais",
+      "otherEntityField": "nombre"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "moneda",
+      "otherEntityRelationshipName": "funciones",
+      "relationshipValidateRules": "required",
+      "relationshipName": "moneda",
+      "otherEntityField": "nombre"
+    }
+  ],
+  "changelogDate": "20201029143309",
+  "entityTableName": "funcion",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

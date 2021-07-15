@@ -1,0 +1,91 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="plataformaBackofficeApp.funcion.home.title">Funciones</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-funcion" [routerLink]="['/funcion/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="plataformaBackofficeApp.funcion.home.createLabel">
+            Create a new Funcion
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="funcions?.length === 0">
+        <span jhiTranslate="plataformaBackofficeApp.funcion.home.notFound">No funciones found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="funcions && funcions.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="fecha"><span jhiTranslate="plataformaBackofficeApp.funcion.fecha">Fecha</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="precio"><span jhiTranslate="plataformaBackofficeApp.funcion.precio">Precio</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="obraNombre"><span jhiTranslate="plataformaBackofficeApp.funcion.obra">Obra</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="paisNombre"><span jhiTranslate="plataformaBackofficeApp.funcion.pais">Pais</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="monedaNombre"><span jhiTranslate="plataformaBackofficeApp.funcion.moneda">Moneda</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let funcion of funcions ;trackBy: trackId">
+                    <td><a [routerLink]="['/funcion', funcion.id, 'view']">{{ funcion.id }}</a></td>
+                    <td>{{ funcion.fecha | date:'mediumDate' }}</td>
+                    <td>{{ funcion.precio }}</td>
+                    <td>
+                        <div *ngIf="funcion.obraId">
+                            <a [routerLink]="['/obra', funcion.obraId , 'view']" >{{ funcion.obraNombre }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="funcion.paisId">
+                            <a [routerLink]="['/pais', funcion.paisId , 'view']" >{{ funcion.paisNombre }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="funcion.monedaId">
+                            <a [routerLink]="['/moneda', funcion.monedaId , 'view']" >{{ funcion.monedaNombre }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/funcion', funcion.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/funcion', funcion.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(funcion)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="funcions && funcions.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

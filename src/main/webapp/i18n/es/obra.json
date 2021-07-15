@@ -1,0 +1,35 @@
+{
+  "plataformaBackofficeApp": {
+    "obra": {
+      "home": {
+        "title": "Obras",
+        "createLabel": "Crear nuevo Obra",
+        "createOrEditLabel": "Crear o editar Obra",
+        "notFound": "Ningún Obras encontrado"
+      },
+      "created": "Un nuevo Obra ha sido creado con el identificador {{ param }}",
+      "updated": "Un Obra ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Obra ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Obra {{ id }}?"
+      },
+      "detail": {
+        "title": "Obra"
+      },
+      "nombre": "Nombre",
+      "descripcion": "Descripcion",
+      "imagen": "Imagen",
+      "icono": "Icono",
+      "protagonistas": "Protagonistas",
+      "direccion": "Direccion",
+      "autores": "Autores",
+      "fecha": "Fecha",
+      "duracion": "Duracion",
+      "funciones": "Funciones",
+      "contenidos": "Contenidos",
+      "etiquetas": "Etiquetas",
+      "tipo": "Tipo",
+      "cuenta": "Cuenta"
+    }
+  }
+}

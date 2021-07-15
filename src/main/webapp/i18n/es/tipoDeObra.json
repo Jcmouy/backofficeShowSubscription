@@ -1,0 +1,24 @@
+{
+  "plataformaBackofficeApp": {
+    "tipoDeObra": {
+      "home": {
+        "title": "Tipo De Obras",
+        "createLabel": "Crear nuevo Tipo De Obra",
+        "createOrEditLabel": "Crear o editar Tipo De Obra",
+        "notFound": "Ningún Tipo De Obras encontrado"
+      },
+      "created": "Un nuevo Tipo De Obra ha sido creado con el identificador {{ param }}",
+      "updated": "Un Tipo De Obra ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Tipo De Obra ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Tipo De Obra {{ id }}?"
+      },
+      "detail": {
+        "title": "Tipo De Obra"
+      },
+      "tipo": "Tipo",
+      "descripcion": "Descripcion",
+      "obras": "Obras"
+    }
+  }
+}

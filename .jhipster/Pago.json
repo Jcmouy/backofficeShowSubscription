@@ -1,0 +1,34 @@
+{
+  "name": "Pago",
+  "fields": [
+    {
+      "fieldName": "idExterno",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "fechaExterna",
+      "fieldType": "Instant"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "subscripcion",
+      "otherEntityRelationshipName": "pago",
+      "relationshipValidateRules": "required",
+      "relationshipName": "subscripcion",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20201029143809",
+  "entityTableName": "pago",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

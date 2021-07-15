@@ -1,0 +1,24 @@
+{
+  "plataformaBackofficeApp": {
+    "moneda": {
+      "home": {
+        "title": "Monedas",
+        "createLabel": "Crear nuevo Moneda",
+        "createOrEditLabel": "Crear o editar Moneda",
+        "notFound": "Ningún Monedas encontrado"
+      },
+      "created": "Un nuevo Moneda ha sido creado con el identificador {{ param }}",
+      "updated": "Un Moneda ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Moneda ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Moneda {{ id }}?"
+      },
+      "detail": {
+        "title": "Moneda"
+      },
+      "codigo": "Codigo",
+      "nombre": "Nombre",
+      "funciones": "Funciones"
+    }
+  }
+}

@@ -1,0 +1,123 @@
+entity Obra {
+	nombre String required,
+    descripcion String,
+    imagen Blob required,
+    icono Blob required, 
+    protagonistas String,
+    direccion String,
+    autores String,
+    fecha LocalDate required,
+    duracion String,
+}
+
+entity TipoDeObra {
+	tipo TiposDeObra required,
+    descripcion String
+}
+
+enum TiposDeObra {
+    CORTO, NOVELA, JUEGO
+}
+
+entity Etiqueta {
+	nombre String required
+}
+
+entity Contenido {
+	indice String required,
+    subindice String,
+    tipoContenido String required,
+    valor String required, 
+    resumen String
+}
+
+entity Proceso {
+	tipo String required,
+    fecha Instant required
+}
+
+entity Proceso {
+	tipo String required,
+    fecha Instant required
+}
+
+entity Funcion {
+	fecha LocalDate required,
+    precio BigDecimal required
+}
+
+entity Moneda {
+	codigo String required,
+    nombre String required
+}
+
+entity Pais {
+	codigo String required,
+	nombre String required
+}
+
+entity Cuenta {
+	codigo String required,
+    nombre String required,
+    fechaBaja LocalDate
+}
+
+entity Persona {
+	codigo String,
+	nombres String required,
+	apellidos String required,
+    fechaNacimiento LocalDate,
+    correoElectronico String, 
+    telefono String
+}
+
+entity Pago{
+	idExterno String,
+    fechaExterna Instant
+}
+
+entity Subscripcion{
+	fecha Instant,
+    metodoPago MetodoPago,
+}
+
+enum MetodoPago {
+	GOOGLEPAY, APPLEPAY, TICKETERA
+}
+
+relationship OneToOne {
+	Subscripcion{pago} to Pago{subscripcion required},
+    Persona{usuario} to User
+}
+
+relationship ManyToMany {
+	Obra{etiquetas(nombre)} to Etiqueta{obras(nombre)}
+}
+
+relationship OneToMany {
+    Obra{funciones} to Funcion{obra(nombre) required},
+    Obra{contenidos} to Contenido{obra(nombre) required},
+    Funcion{subscripciones} to Subscripcion{funcion required}
+    Persona{subscripciones} to Subscripcion{persona required},
+    Pais{personas} to Persona{pais required},
+    TipoDeObra{obras(nombre)} to Obra{tipo(tipo) required},
+    Pais{funciones} to Funcion{pais(nombre) required},
+    Moneda{funciones} to Funcion{moneda(nombre) required},
+    Cuenta{obras} to Obra{cuenta(nombre) required},
+    Cuenta{personas} to Persona{cuenta(nombre) required},
+}
+
+// Set Filtering options
+filter *
+
+// Set pagination options
+paginate * with pagination
+
+// Use Data Transfert Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl 
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

@@ -1,0 +1,10 @@
+{
+  "plataformaBackofficeApp": {
+    "TiposDeObra": {
+      "null": "",
+      "CORTO": "CORTO",
+      "NOVELA": "NOVELA",
+      "JUEGO": "JUEGO"
+    }
+  }
+}

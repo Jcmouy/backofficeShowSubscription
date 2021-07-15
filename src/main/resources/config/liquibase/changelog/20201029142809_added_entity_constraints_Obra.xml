@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity Obra.
+    -->
+    <changeSet id="20201029142809-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="obra_id"
+                                 baseTableName="obra_etiquetas"
+                                 constraintName="fk_obra_etiquetas_obra_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="obra"/>
+
+        <addForeignKeyConstraint baseColumnNames="etiquetas_id"
+                                 baseTableName="obra_etiquetas"
+                                 constraintName="fk_obra_etiquetas_etiquetas_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="etiqueta"/>
+        
+        <addForeignKeyConstraint baseColumnNames="tipo_id"
+                                 baseTableName="obra"
+                                 constraintName="fk_obra_tipo_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tipo_de_obra"/>
+
+        <addForeignKeyConstraint baseColumnNames="cuenta_id"
+                                 baseTableName="obra"
+                                 constraintName="fk_obra_cuenta_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cuenta"/>
+
+    </changeSet>
+</databaseChangeLog>

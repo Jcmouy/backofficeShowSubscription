@@ -1,0 +1,31 @@
+{
+  "plataformaBackofficeApp": {
+    "persona": {
+      "home": {
+        "title": "Personas",
+        "createLabel": "Crear nuevo Persona",
+        "createOrEditLabel": "Crear o editar Persona",
+        "notFound": "Ningún Personas encontrado"
+      },
+      "created": "Un nuevo Persona ha sido creado con el identificador {{ param }}",
+      "updated": "Un Persona ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Persona ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Persona {{ id }}?"
+      },
+      "detail": {
+        "title": "Persona"
+      },
+      "codigo": "Codigo",
+      "nombres": "Nombres",
+      "apellidos": "Apellidos",
+      "fechaNacimiento": "Fecha Nacimiento",
+      "correoElectronico": "Correo Electronico",
+      "telefono": "Telefono",
+      "usuario": "Usuario",
+      "subscripciones": "Subscripciones",
+      "pais": "Pais",
+      "cuenta": "Cuenta"
+    }
+  }
+}

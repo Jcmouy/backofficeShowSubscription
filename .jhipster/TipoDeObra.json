@@ -1,0 +1,34 @@
+{
+  "name": "TipoDeObra",
+  "fields": [
+    {
+      "fieldName": "tipo",
+      "fieldType": "TiposDeObra",
+      "fieldValues": "CORTO,NOVELA,JUEGO",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "descripcion",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "obra",
+      "otherEntityRelationshipName": "tipo",
+      "relationshipName": "obras"
+    }
+  ],
+  "changelogDate": "20201029142909",
+  "entityTableName": "tipo_de_obra",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

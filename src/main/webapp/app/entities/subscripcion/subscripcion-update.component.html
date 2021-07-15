@@ -1,0 +1,78 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-subscripcion-heading" jhiTranslate="plataformaBackofficeApp.subscripcion.home.createOrEditLabel">Create or edit a Subscripcion</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="plataformaBackofficeApp.subscripcion.fecha" for="field_fecha">Fecha</label>
+                    <div class="d-flex">
+                        <input id="field_fecha" type="datetime-local" class="form-control" name="fecha" formControlName="fecha" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="plataformaBackofficeApp.subscripcion.metodoPago" for="field_metodoPago">Metodo Pago</label>
+                    <select class="form-control" name="metodoPago" formControlName="metodoPago" id="field_metodoPago">
+                        <option value="GOOGLEPAY">{{ 'plataformaBackofficeApp.MetodoPago.GOOGLEPAY' | translate }}</option>
+                        <option value="APPLEPAY">{{ 'plataformaBackofficeApp.MetodoPago.APPLEPAY' | translate }}</option>
+                        <option value="TICKETERA">{{ 'plataformaBackofficeApp.MetodoPago.TICKETERA' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="plataformaBackofficeApp.subscripcion.pago" for="field_pago">Pago</label>
+                    <select class="form-control" id="field_pago" name="pago" formControlName="pagoId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="pagoOption.id" *ngFor="let pagoOption of pagos; trackBy: trackById">{{ pagoOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="plataformaBackofficeApp.subscripcion.funcion" for="field_funcion">Funcion</label>
+                    <select class="form-control" id="field_funcion" name="funcion" formControlName="funcionId">
+                        <option *ngIf="!editForm.get('funcionId')!.value" [ngValue]="null" selected></option>
+                        <option [ngValue]="funcionOption.id" *ngFor="let funcionOption of funcions; trackBy: trackById">{{ funcionOption.id }}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('funcionId')!.invalid && (editForm.get('funcionId')!.dirty || editForm.get('funcionId')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('funcionId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="plataformaBackofficeApp.subscripcion.persona" for="field_persona">Persona</label>
+                    <select class="form-control" id="field_persona" name="persona" formControlName="personaId">
+                        <option *ngIf="!editForm.get('personaId')!.value" [ngValue]="null" selected></option>
+                        <option [ngValue]="personaOption.id" *ngFor="let personaOption of personas; trackBy: trackById">{{ personaOption.id }}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('personaId')!.invalid && (editForm.get('personaId')!.dirty || editForm.get('personaId')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('personaId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

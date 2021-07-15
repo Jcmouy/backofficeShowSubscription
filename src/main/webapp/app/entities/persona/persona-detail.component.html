@@ -1,0 +1,66 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="persona">
+            <h2><span jhiTranslate="plataformaBackofficeApp.persona.detail.title">Persona</span> {{ persona.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="plataformaBackofficeApp.persona.codigo">Codigo</span></dt>
+                <dd>
+                    <span>{{ persona.codigo }}</span>
+                </dd>
+                <dt><span jhiTranslate="plataformaBackofficeApp.persona.nombres">Nombres</span></dt>
+                <dd>
+                    <span>{{ persona.nombres }}</span>
+                </dd>
+                <dt><span jhiTranslate="plataformaBackofficeApp.persona.apellidos">Apellidos</span></dt>
+                <dd>
+                    <span>{{ persona.apellidos }}</span>
+                </dd>
+                <dt><span jhiTranslate="plataformaBackofficeApp.persona.fechaNacimiento">Fecha Nacimiento</span></dt>
+                <dd>
+                    <span>{{ persona.fechaNacimiento }}</span>
+                </dd>
+                <dt><span jhiTranslate="plataformaBackofficeApp.persona.correoElectronico">Correo Electronico</span></dt>
+                <dd>
+                    <span>{{ persona.correoElectronico }}</span>
+                </dd>
+                <dt><span jhiTranslate="plataformaBackofficeApp.persona.telefono">Telefono</span></dt>
+                <dd>
+                    <span>{{ persona.telefono }}</span>
+                </dd>
+                <dt><span jhiTranslate="plataformaBackofficeApp.persona.usuario">Usuario</span></dt>
+                <dd>
+                    {{ persona.usuarioId }}
+                </dd>
+                <dt><span jhiTranslate="plataformaBackofficeApp.persona.pais">Pais</span></dt>
+                <dd>
+                    <div *ngIf="persona.paisId">
+                        <a [routerLink]="['/pais', persona.paisId, 'view']">{{ persona.paisId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="plataformaBackofficeApp.persona.cuenta">Cuenta</span></dt>
+                <dd>
+                    <div *ngIf="persona.cuentaId">
+                        <a [routerLink]="['/cuenta', persona.cuentaId, 'view']">{{ persona.cuentaNombre }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/persona', persona.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

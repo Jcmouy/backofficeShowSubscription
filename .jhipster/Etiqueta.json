@@ -1,0 +1,31 @@
+{
+  "name": "Etiqueta",
+  "fields": [
+    {
+      "fieldName": "nombre",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "obra",
+      "otherEntityRelationshipName": "etiquetas",
+      "relationshipName": "obras",
+      "otherEntityField": "nombre",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20201029143009",
+  "entityTableName": "etiqueta",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

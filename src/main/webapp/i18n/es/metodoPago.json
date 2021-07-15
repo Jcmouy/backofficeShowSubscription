@@ -1,0 +1,10 @@
+{
+  "plataformaBackofficeApp": {
+    "MetodoPago": {
+      "null": "",
+      "GOOGLEPAY": "GOOGLEPAY",
+      "APPLEPAY": "APPLEPAY",
+      "TICKETERA": "TICKETERA"
+    }
+  }
+}

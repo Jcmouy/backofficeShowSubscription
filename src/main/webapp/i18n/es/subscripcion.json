@@ -1,0 +1,26 @@
+{
+  "plataformaBackofficeApp": {
+    "subscripcion": {
+      "home": {
+        "title": "Subscripciones",
+        "createLabel": "Crear nueva Subscripcion",
+        "createOrEditLabel": "Crear o editar Subscripcion",
+        "notFound": "Ningúna Subscripcion encontrada"
+      },
+      "created": "Una nueva Subscripcion ha sido creada con el identificador {{ param }}",
+      "updated": "Una Subscripcion ha sido actualizada con el identificador {{ param }}",
+      "deleted": "Una Subscripcion ha sido eliminada con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar la Subscripcion {{ id }}?"
+      },
+      "detail": {
+        "title": "Subscripcion"
+      },
+      "fecha": "Fecha",
+      "metodoPago": "Metodo Pago",
+      "pago": "Pago",
+      "funcion": "Funcion",
+      "persona": "Persona"
+    }
+  }
+}
